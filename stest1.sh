@@ -1,15 +1,16 @@
 #!/bin/bash
 #
-# TESTNETCOINS.IO LEADERBOARD v0.1 by CN
+# TESTNETCOINS.IO LEADERBOARD v0.2 by CN
 # Input: Tester wallet Addresses
 # Output: Leaderboard TX Counts Sorted
-# vlog1.txt plog1.txt
+# Output files: vlog1.txt plog1.txt vplog1.txt pplog1.txt
 
 # Define timestamp
 timestamp() {
   date +"%Y-%m-%d"
 }
-# Preview
+
+# Preview Testers
 declare -a varray=(
 "stake_test1urndsx7k6wepy582uwtajwuka2v3vrvsg8zau64ttmtx46c04x7fp"
 "stake_test1uptpd74fewegrylmkt22nqqtvde87kw7nvls36l6fkl4u4qmxpehd"
@@ -39,9 +40,51 @@ declare -a varray=(
 "stake_test1uz4zywvtfe3d24jl6nyfz9ay5yl9jjrhvpves7ycgj5r9ecrqpl3p"
 "stake_test1uzd8kfny6x092fuqn5spxqf753q7ep2dz8szc2ly283yvwcawvc68"
 "stake_test1upey39hey75y4a3f2lmkk07fv4rffdzclznh4696qrzk00s7e7t7v"
+"stake_test1urfz8fgxusywfvuykqmrcwzje6xgcnyvcmg57ms3pue0zqswmvskv"
+"stake_test1uptnxvsj7zp8svxy3c0l3gczp6qrfc0xa006qck2rrdw93cdhrrca"
+"stake_test1uptnxvsj7zp8svxy3c0l3gczp6qrfc0xa006qck2rrdw93cdhrrca"
+"stake_test1urhgvz5w90mwh2lmhw465s0xmwgc0aulut5xz6mfjwxnzfqnhqexr"
+"stake_test1ur4tgp9ej8jln7kp62hnvlrv744j5rfrdvurj2xq7lmd4jsxk3xjx"
+"stake_test1uqwxlq4f66a2r2rtvvwafnsk8rqxczzlrzwgetc7u2yvnmss9mpnm"
+"stake_test1upx0fuqcjqs4h5vp687d8j2cng4y5wkmelc6wzm5szq04qsm5d0l6"
+"stake_test1urdd0v5y4m04eqssc0wfhdhemat5ue84sh2lnm5zwhaj8gcw0fydd"
+"stake_test1uz5rzsgfkfg40r4xyfuvquluwvjp5s55js3xutqfaj3sp7qxgu5pj"
+"stake_test1uqkycsln37cycnsra85edkjq0v6d8wpmv3dtdm967z5a4ysmn6n4g"
+"stake_test1uq0svpdrrj5rc9k9zm4755t0lmsekvp8rcg7p8cdxq7pqwsh5yuwn"
+"stake_test1uqfzx47st0n0659qfgmyj87nzhkkwyr4egswj7q5ea37atquq6ya5"
+"stake_test1uzmh23wg5n32ha8863l3l44d5ezq9w8z8qkrzdc9a0rl44s3h90hp"
 )
 
-# PreProd
+#Preview Pools
+declare -a vparray=(
+"pool1ayc7a29ray6yv4hn7ge72hpjafg9vvpmtscnq9v8r0zh7azas9c"
+"pool1vzqtn3mtfvvuy8ghksy34gs9g97tszj5f8mr3sn7asy5vk577ec"
+"pool1htdmnme5s6d824trqq33czlm82f473w04h4xghprzaj3cff53mp"
+"pool1leml52hm4fcp3hhe4zye08qz27llhj7d339p3gs0tl85cstx59q"
+"pool1l5u4zh84na80xr56d342d32rsdw62qycwaw97hy9wwsc6axdwla"
+"pool1p835jxsj8py5n34lrgk6fvpgpxxvh585qm8dzvp7ups37vdet5a"
+"pool1qal80uhlj949mgv0ecvdkmgqjdn5q27wmpaj4crnr5e9v6qmsv7"
+"pool1j3x329u0uxh9s9vjvsad9kx37tzal8gndz6ttxumcz4nw947djw"
+"pool1z9nsz7wyyxc5r8zf8pf774p9gry09yxtrlqlg5tsnjndv5xupu3"
+"pool1pt39c4va0aljcgn4jqru0jhtws9q5wj8u0xnajtkgk9g7lxlk2t"
+"pool1h7c2jq3pmvn3f8jht4ulhgha3h60k6syu3rw6pmkfrhqs9j7m0l"
+)
+
+#PreProd Pools
+declare -a pparray=(
+"pool1tjc56tq7adk64nnq2ldu3f4nh6sxkphhmnejlu67ux7acq8y7rx"
+"pool1egfg26w0syqly9qc65hz33gqv2qrzyka8tfue3ccsk3c73a56jp"
+"pool1vntql3yhyzzm3p846mds33nmuzz30jrn56fvjdd3hhu9u5n9d4d"
+"pool1kgzq2g7glzcu76ygcl2llhamjjutcts5vhe2mzglmn5jxt2cnfs"
+"pool1mvgpsafktxs883p66awp7fplj73cj6j9hqdxzvqw494f7f0v2dp"
+"pool1lk6cxjaqd66t4t74q4gd9hymxapd93fvchhxt0uxwwprk9m8v6c"
+"pool1nfn2m3lq52hw6l8lq9nlag4lsdvlav2zdl9saptfelh07arxfc5"
+"pool1h4n2c2g6c5saatezzs0mpe0z7rknmf33txulf8sl2q9v7e72nky"
+"pool1egu0kaxmv3zu54xd80p9u0dcalnywmfru0qnm43hjvfzqa5zw5x"
+"pool1n84mel6x3e8sp0jjgmepme0zmv8gkw8chs98sqwxtruvkhhcsg8"
+)
+
+# PreProd Testers
 declare -a parray=(
 "stake_test1urmpsd7wc295nhekhq3993f08m6nu93ckvc4mxk7puqu0fsv5mlne"
 "stake_test1uzw5kggxcdpy3508enq6ccy52laskn2r9mqdpgmuf83yzwcldv55v"
@@ -59,6 +102,15 @@ declare -a parray=(
 "stake_test1urqu9ra0tk6gs0he4p6n7gzu4fl0c5d8m43gz2v6ddc4etsctkflq"
 "stake_test1uzhnnx3yf6zcxghaxwcfnn8ndnkcx3g9ec3welew4hyewyq5rk5ap"
 "stake_test1upwgrkj706n60334k98smhdyh80ch30sl56sm6zlhxaw46gsu34nz"
+"stake_test1uqfztccwfdldzn2vtzd7flyaww8nepzkjhhyjjqjyw4zyzcl6rpg4"
+"stake_test1uzn0ky86k4zfvrkqcal2fna4wlv73q548euyxnwrq5eed6s4vk49t"
+"stake_test1urse5h5e24sxthm4uxkk7ultklm6923yn00cw0xqnam5m6sz4jpje"
+"stake_test1uzhqqvrrpfujqfmykzjz5amaejga9ufa227kvqypj9vfdnsq3v0n3"
+"stake_test1uz96a8z7zjsf766kts2nk8x5pfr6gtkp99sc9vaks4at4jqr3f78j"
+"stake_test1uzr9gkrafdvx32yscz6rrrtk4ks3k66gyn847agw6jtdcxgp824wl"
+"stake_test1uzz8qj6hphmzyl9s9x8nxv7dre6gfqm6n497qlypt6tprqsv0ckc2"
+"stake_test1uz96a8z7zjsf766kts2nk8x5pfr6gtkp99sc9vaks4at4jqr3f78j"
+"stake_test1uqj7wj9fn93hfk6qtskms87jf58ecm2tm6v58ancq8e8klc6twkwm"
 )
 
 COUNT=0
@@ -70,6 +122,9 @@ echo "TESTNETCOINS.IO LEADERBOARD v0.1"
 timestamp
 echo "Preview > vlog.txt" $arraylength
 
+#######################################
+# Preview Testers
+#######################################
 for (( i=0; i<${arraylength}; i++ ));
 do
 
@@ -80,6 +135,7 @@ do
   echo "$COUNT ${varray[$i]}" >>  vlog.txt
 
 done
+#######################################
 
 COUNT=0
 
@@ -87,6 +143,9 @@ rm plog.txt
 arraylength=${#parray[@]}
 echo "PreProd > plog.txt" $arraylength
 
+#######################################
+#Preprod Testers
+#######################################
 for (( i=0; i<${arraylength}; i++ ));
 do
 
@@ -97,9 +156,62 @@ do
   echo "$COUNT ${parray[$i]}" >> plog.txt
 
 done
+#######################################
 
+arraylength=${#vparray[@]}
+echo "Preview Pools" $arraylength
+
+#######################################
+#Preview Pools
+#######################################
+for (( i=0; i<${arraylength}; i++ ));
+do
+
+curl -s -H "project_id: previewCEUos82btjxhRfIQa95caOKFJ1QZYlIt" "https://cardano-preview.blockfrost.io/api/v0/pools/${vparray[$i]}" -o txs.json
+COUNT=$(jq .blocks_minted txs.json)
+rm txs.json
+#echo "$COUNT ${vparray[$i]}"
+
+curl -s -H "project_id: previewCEUos82btjxhRfIQa95caOKFJ1QZYlIt" "https://cardano-preview.blockfrost.io/api/v0/pools/${vparray[$i]}/metadata" -o txs.json
+TICKER=$(jq .ticker txs.json)
+rm txs.json
+echo "$COUNT $TICKER"
+echo "$COUNT $TICKER" >> vplog.txt
+
+done
+#######################################
+
+arraylength=${#pparray[@]}
+echo "PreProd Pools" $arraylength
+
+#######################################
+#PreProd Pools
+#######################################
+for (( i=0; i<${arraylength}; i++ ));
+do
+
+curl -s -H "project_id: preproduFoZ6i7GDBn5ORrA40999bwPEeSR2Dx2" "https://cardano-preprod.blockfrost.io/api/v0/pools/${pparray[$i]}" -o txs.json
+COUNT=$(jq .blocks_minted txs.json)
+rm txs.json
+#echo "$COUNT ${pparray[$i]}"
+
+curl -s -H "project_id: preproduFoZ6i7GDBn5ORrA40999bwPEeSR2Dx2" "https://cardano-preprod.blockfrost.io/api/v0/pools/${pparray[$i]}/metadata" -o txs.json
+TICKER=$(jq .ticker txs.json)
+rm txs.json
+echo "$COUNT $TICKER"
+echo "$COUNT $TICKER" >> pplog.txt
+
+done
+#######################################
+
+
+# Sort Output Files
 sort -g -r vlog.txt > vlog1.txt
 sort -g -r plog.txt > plog1.txt
+sort -g -r vplog.txt > vplog1.txt
+sort -g -r pplog.txt > pplog1.txt
 rm vlog.txt
 rm plog.txt
+rm vplog.txt
+rm pplog.txt
 echo "done"
