@@ -3,7 +3,7 @@
 # TESTNETCOINS.IO LEADERBOARD v0.2 by CN
 # Input: Tester wallet Addresses
 # Output: Leaderboard TX Counts Sorted
-# Output files: vlog1.txt plog1.txt vplog1.txt pplog1.txt
+# vlog1.txt plog1.txt vplog1.txt pplog1.txt
 
 # Define timestamp
 timestamp() {
@@ -53,6 +53,18 @@ declare -a varray=(
 "stake_test1uq0svpdrrj5rc9k9zm4755t0lmsekvp8rcg7p8cdxq7pqwsh5yuwn"
 "stake_test1uqfzx47st0n0659qfgmyj87nzhkkwyr4egswj7q5ea37atquq6ya5"
 "stake_test1uzmh23wg5n32ha8863l3l44d5ezq9w8z8qkrzdc9a0rl44s3h90hp"
+"stake_test1uzdnss2rhz079lu6nevsjc6sp2tyy5p28jy05y0rmamlm5g3l3qvw"
+"stake_test1urayrfpzhskhel6njh43uhkny2jmqwjkyuja3a7947t70dg4fe0qv"
+"stake_test1uzjk2fqnn3hnqra9v956sl9055kzad0yjcr4zceztlrk5eg34fzse"
+"stake_test1uqxnlhw58venxnajtaetwhrw8kt3nrz52clpf85s2327n5gqaq00u"
+"stake_test1uqh8hkpdmwu2evuxnyzgh9ylvd93dsj23jjk32ygmjn36fq8kummq"
+"stake_test1uzdnss2rhz079lu6nevsjc6sp2tyy5p28jy05y0rmamlm5g3l3qvw"
+"stake_test1uq0y3nleuuszy5vgmrq0gw67xuwa6uxke8gwcmx0p3ufjjq6dmmqy"
+"stake_test1uzj28ydkq2kj548rtz7efstst07xjmqdsrzww6ja83374hsy8ng6p"
+"stake_test1uq9zumrs6yy8pzray7hxsltw8e27yuzp9tr0n09z6nh3w0ghukrg2"
+"stake_test1uqfztccwfdldzn2vtzd7flyaww8nepzkjhhyjjqjyw4zyzcl6rpg4"
+"stake_test1uzja92773ar22zhkrmxw7mnyaeefm8u6fx98uyhnk030e0qmkw64p"
+"stake_test1up26hg3sn9zkgdqsaxsntv2ed96e7lfv5y00plr5le52y0gea2une"
 )
 
 #Preview Pools
@@ -68,6 +80,10 @@ declare -a vparray=(
 "pool1z9nsz7wyyxc5r8zf8pf774p9gry09yxtrlqlg5tsnjndv5xupu3"
 "pool1pt39c4va0aljcgn4jqru0jhtws9q5wj8u0xnajtkgk9g7lxlk2t"
 "pool1h7c2jq3pmvn3f8jht4ulhgha3h60k6syu3rw6pmkfrhqs9j7m0l"
+"pool1yphncqvpc4n49c4ya3mys7uwpwa25892r70gzkpqglenv093qge"
+"pool1397kpa7ylzg4lqrmj3xr28xzq2548c8lafw90qyxvucsslap03v"
+"pool1n6tcrkjjn7dr70e4vjmtayswl2rne947fue7w2htthaq6men4yp"
+"pool1da3p2l74sr347ln6gpmmkkqnnupfxhfh2d7fuur2g7twvddm5ua"
 )
 
 #PreProd Pools
@@ -82,6 +98,9 @@ declare -a pparray=(
 "pool1h4n2c2g6c5saatezzs0mpe0z7rknmf33txulf8sl2q9v7e72nky"
 "pool1egu0kaxmv3zu54xd80p9u0dcalnywmfru0qnm43hjvfzqa5zw5x"
 "pool1n84mel6x3e8sp0jjgmepme0zmv8gkw8chs98sqwxtruvkhhcsg8"
+"pool12v43sug6avuwn458fwlx0j72lqrjqqcec9nc9ywk24x0wn7ng46"
+"pool1jgl6h9fyy8gqt593ah638kqps4ls7c78d5p00we6qlzycdmhhvq"
+"pool1ws42l6rawqjv58crs5l32v0eem3qnngpnjfd7epwd4lmjccc5cg"
 )
 
 # PreProd Testers
@@ -111,6 +130,20 @@ declare -a parray=(
 "stake_test1uzz8qj6hphmzyl9s9x8nxv7dre6gfqm6n497qlypt6tprqsv0ckc2"
 "stake_test1uz96a8z7zjsf766kts2nk8x5pfr6gtkp99sc9vaks4at4jqr3f78j"
 "stake_test1uqj7wj9fn93hfk6qtskms87jf58ecm2tm6v58ancq8e8klc6twkwm"
+"stake_test1urtzg5geh5u8evm0lh42fzsn9xueae5krnt66r0h7f9htfcsceg38"
+"stake_test1uquseumvzc65n4w62ftnaa6w06d8508glt3a5tkg4mvmrjgxlenfv"
+"stake_test1ur7yllksu2qjaq34j5zwgmm995syj3p8vvncuc90ayegt8gqmnmzh"
+"stake_test1upkjs9jarpqzylljcemdeufvq7g2xzcr6ng49p5wls629mqh6g5sn"
+"stake_test1urqq5wfslqveldd35gklvhk4envqln6ea3syp4lv0dq3msq8pzere"
+"stake_test1uprpy3g5549gv5ry89p9qvx0m55a2qepnz76hehh9h8nq9qnncp6x"
+"stake_test1upvhmetjsdndf38x5pznpw5nyceanae8dt2fl5cnfv3vt8qu3v35t"
+"stake_test1uzathspc7kqxuja7dk7565ztp4ep2rlch50dsjg3nentw0q7lef4m"
+"stake_test1urntlujn6jkqrzd4dl8xd0p46v4nt75h394vn9z0g7dzvtcecem0q"
+"stake_test1upwpeef7rdcjj9msl5tt7697m28vcq7v74g4j6h2mppavwg9r07jr"
+"stake_test1uzn080yta8a5uvjtq488j6et8zfs5x0k8ugjqzm3yffkkqca6hkcc"
+"stake_test1ure7hxpelva78entxv9un5ep84ycc0tp58lykvmfnuzdeegf33y7s"
+"stake_test1upsazx70st4apj32lkhedcg7cu0y826wg4xtu9y4ks4yaps9hr3yx"
+"stake_test1uqpfwynwtvqluzhf3w0j6zfn2au6lxdkkknx42evqf2mwlsgjf2rl"
 )
 
 COUNT=0
